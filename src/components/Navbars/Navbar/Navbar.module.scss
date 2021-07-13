@@ -1,0 +1,148 @@
+.black{
+  background-color:black;
+}
+
+header{
+  width: 100%;
+  height: 120px;
+  position: fixed;
+  transition:  0.5s;
+  z-index: 2;
+  @media(max-width: 499px) {
+    height: 60px;
+  }
+}
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 25px;
+  margin-top: 27px;
+  @media(max-width: 499px) {
+    margin-top: 12px;
+  }
+  &__logo {
+    align-self: flex-start;
+    @media(max-width: 1290px) {
+      margin-left: 20px;
+    }
+    img{
+      @media(max-width: 499px) {
+        width:7.5rem;
+      }
+      width:15rem;
+    }
+  }
+  h1{
+    color:white;
+    font-weight: 300;
+    @media(max-width: 499px) {
+      font-size: 16px;
+    } 
+  }
+  &__links {
+    align-self: flex-end;
+    margin:auto 0;
+    @media(max-width: 1290px) {
+      margin-right: 20px;
+    }
+    ul {
+      list-style: none;
+      display: inline;
+    }
+    li {
+      display: inline;
+      color: white;
+      margin-left: 20px;   
+    }
+    a{
+      display:flex;
+      align-items: center;
+      text-decoration: none;
+      transition: 0.5s;
+      @media(max-width: 499px) {
+        display: none;
+      }
+    }
+    img{
+      margin-left: 15px;
+      height:20px;
+    }
+  }
+}
+
+.burger_menu{
+  visibility:hidden;
+  position:absolute;
+  z-index: 100;
+  height: calc(100vh);
+  width:100%;
+  background: rgba(81, 180, 226, 0.349);
+  transition: visibility 0s, opacity 0.5s linear;
+  opacity: 0;
+  &__shape{
+    display:flex;
+    height: 100%;
+    width:100%;
+    justify-content: flex-end;
+    &__triangle{
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 0 calc(100vh) 200px;
+      border-color: transparent transparent white transparent;
+    }
+    &__rectangle{
+      background:white;
+      height:100%;
+      width:300px;
+      display: flex;
+      align-content: flex-end;
+
+      &__list{
+        display:flex;
+        flex-direction: column;
+        align-items: flex-end;
+        width: 100%;
+        margin:1rem 2rem;
+        &__close{
+          margin-right: -1rem;
+          height: 15px;
+        }
+        &__eudLogo{
+            height:50px;          
+        }
+        a{
+          text-decoration: none;
+          color: black;
+          font-size: 24px;
+          margin-bottom: 2rem;
+          text-align: right;
+        }
+        a:hover{
+          text-decoration: underline;
+          text-decoration-color: rgba(81, 180, 226, 0.5);
+        }
+
+        &__training{
+          text-align: right;
+          &:hover{
+            div{
+              visibility: visible;
+              opacity: 1;
+              transition: opacity 1s;
+              a{
+                margin-bottom: 1.5rem;
+                font-size: 14px;
+              }
+            }
+          }
+          div{
+            visibility: hidden;
+            opacity: 0;
+          }
+        }
+      }
+    }
+  }
+}

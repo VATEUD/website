@@ -1,0 +1,38 @@
+.event_box{
+    margin: 2rem;
+    min-height: 250px;
+    min-width: 200px;
+    background-color: azure;
+    h1{
+      text-align: center;
+      color: black;
+    }
+    a{
+      text-decoration: none;
+    }
+    img{
+      width: 100%;
+      object-fit: cover;
+      @media(max-width: 499px) {
+        height: 180px;
+      }
+    }
+    &_loading{
+      p{
+        text-align: center;
+      }
+      background-color: rgb(168, 197, 187);
+    }
+    &_error{
+      p{
+        text-align: center;
+      }
+      background-color: rgb(168, 197, 187);
+    }
+    &_text{
+      p{
+        text-align: center;
+      }
+      background-color: rgb(168, 197, 187);
+    }
+  }

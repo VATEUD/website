@@ -1,0 +1,34 @@
+.policies{
+    display:flex;
+    flex-direction: column;
+    align-items: center;  
+    h1{
+      font-size: 3rem;
+    }
+    &__pdf{
+      padding: 5px;
+      background: black;
+      border-radius: 1px;
+      box-shadow: 5px 10px #888888;
+      margin-bottom: 2rem;  
+      @media(max-width: 499px) {
+        display:none;
+      } 
+    }
+    p{
+      font-size: 1rem;
+    }
+    &__paging{
+      display:flex;
+      justify-content: space-around;
+      @media(max-width: 499px) {
+        display:none;
+      } 
+    }
+    button{
+      padding:0.5rem;
+      width: 75px;
+      border-radius: 5px;
+      border: 1px solid black;
+    }
+  }

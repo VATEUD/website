@@ -1,0 +1,67 @@
+{
+  "name": "notus-react",
+  "version": "1.1.0",
+  "description": "Vateud website",
+  "repository": "https://github.com/creativetimofficial/notus-react",
+  "license": "MIT",
+  "dependencies": {
+    "@n8tb1t/use-scroll-position": "^2.0.3",
+    "@vatsim/passport-vatsim": "^1.0.0",
+    "autoprefixer": "10.2.5",
+    "bootstrap": "^4.6.0",
+    "chart.js": "2.9.4",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.22.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-markdown": "^2.0.0",
+    "gulp": "4.0.2",
+    "gulp-append-prepend": "1.0.8",
+    "isexe": "^2.0.0",
+    "jquery": "^3.6.0",
+    "jquery-easing": "0.0.1",
+    "postcss": "8.2.8",
+    "prop-types": "^15.7.2",
+    "radium": "^0.26.1",
+    "raphael": "^2.3.0",
+    "react": "^17.0.1",
+    "react-animations": "^1.0.0",
+    "react-bootstrap": "^1.5.2",
+    "react-dom": "17.0.1",
+    "react-pdf": "^5.3.0",
+    "react-router": "5.2.0",
+    "react-router-dom": "5.2.0",
+    "react-scripts": "4.0.3",
+    "react-scrollbar": "^0.5.6",
+    "react-spring": "^9.1.1",
+    "react-tree-graph": "^6.0.0",
+    "sass": "^1.32.8",
+    "select": "^1.1.2",
+    "tailwindcss": "2.0.4",
+    "treant-js": "^1.0.1",
+    "use-scroll-position": "0.0.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "optionalDependencies": {
+    "typescript": "4.2.3"
+  },
+  "devDependencies": {}
+}

@@ -1,0 +1,21 @@
+.listins{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  min-height: 800px;
+  .country{
+    background: cornsilk;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 4px 3px rgba(128, 128, 128, 0.281);
+    min-height: 20px;
+    width: 250px;
+  }
+  .country:hover{
+    background: rgba(255, 248, 220, 0.377);
+  }
+  ul{
+    list-style: none;
+  }
+}
