@@ -21,8 +21,8 @@ export default function Index() {
   }
 
   function moreEvents(e){
-    if(events.length)
     setEvents([...events, events[events.length-1]+1]);
+    console.log(events);
   }
  
   useEffect(() => {
@@ -30,10 +30,11 @@ export default function Index() {
       setIsLoading(true);
       try {
         const result = await fetch(apiUrl+`/events/filter/0`);
-        if(await result.json() !== null || events.length > 1){
-          setEvents([1])
+        console.log(events);
+        if(await result.json() !== null || events[0] === 1){
           setNoEvents(false);
         } else{
+          setEvents([1])
           setNoEvents(true);
         }
       } catch (error) {
@@ -118,35 +119,31 @@ export default function Index() {
             <div  className={`${s.three__event__day} row`}>
             <ReactLoading type={'bubbles'} color={'black'} height={'20%'} width={'20%'} />
           </div>
-            
           ):(
             isError ? (
               <div  className={`${s.three__event__day} row`}>
                 <p>An error ocurred while fetching the events</p>
-                  
-                </div>
-              
+              </div>
             ) : (
-              
               noEvents ? (
                 <>
-                <div  className={`${s.three__event__day} row`}>
-                  <p>There aren't any more events today. Press more to check tomrrow's events.</p>
-                </div>
-                {events.length < 5 && 
-                  <div className={`${s.three__event__day} row`}>
-                    <button onClick={moreEvents}>More</button>
-                  </div>   
-                }
+                  <div  className={`${s.three__event__day} row`}>
+                    <p>There aren't any more events today. Press more to check tomrrow's events.</p>
+                  </div>
+                  {events.length < 5 && 
+                    <div className={`${s.three__event__day} row`}>
+                      <button onClick={moreEvents}>More</button>
+                    </div>   
+                  }
                </>
               ):(
                 <>
                 {events.map(i => <Events day={i} />)}
                 {events.length < 5 && 
-                <div className={`${s.three__event__day} row`}>
-                  <button onClick={moreEvents}>More</button>
-                </div>   
-              }
+                  <div className={`${s.three__event__day} row`}>
+                    <button onClick={moreEvents}>More</button>
+                  </div>   
+                }
                 </> 
               ) 
             )

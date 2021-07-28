@@ -11,7 +11,7 @@ export default function HealthBar(){
       try {
         const result = await fetch(apiUrl+`/healthCheck`);
         const json = await result.json();
-        for(let i = 0; i<json.Websites.length(); i++){
+        for(let i = 0; i<json.Websites.length; i++){
           if(!json.Websites[i].Healthy){
             isHealthy(false)
           }
