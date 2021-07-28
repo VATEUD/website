@@ -31,7 +31,6 @@ export default function Index() {
       try {
         const result = await fetch(apiUrl+`/events/filter/0`);
         if(await result.json() !== null){
-          setEvents([0,1]);
           setNoEvents(false);
         } else{
           setNoEvents(true);
@@ -116,25 +115,38 @@ export default function Index() {
         }
         <div className ={`${s.three__event__pool} grid`}>
           {isLoading ? (
+            <div  className={`${s.three__event__day} row`}>
             <ReactLoading type={'bubbles'} color={'black'} height={'20%'} width={'20%'} />
+          </div>
+            
           ):(
             noEvents ? (
-              <p>There aren't any more events today. Press more to check tomrrow's events.</p>
+              <div  className={`${s.three__event__day} row`}>
+                  <p>There aren't any more events today. Press more to check tomrrow's events.</p>
+                </div>
+              
             ) : (
               isError? (
-                <p>An error ocurred while fetching the events</p>
+                <div  className={`${s.three__event__day} row`}>
+                  <p>An error ocurred while fetching the events</p>
+                </div>
+               
               ):(
-                events.map(i => <Events day={i} />)
+                <>
+                {events.map(i => <Events day={i} />)}
+                {events.length < 5 && (
+                  <div className={`${s.three__event__day} row`}>
+                    <button onClick={moreEvents}>More</button>
+                    </div>
+                )}
+                </>
+                
               )
+                 
             )
             
           )}
         </div>
-        { events.length < 5 &&
-        <div className={`${s.three__event__day} row`}>
-          <button onClick={moreEvents}>More</button>
-          </div>
-         }
       </section>
     </>
   );
