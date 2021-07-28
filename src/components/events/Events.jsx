@@ -1,26 +1,23 @@
 import React, { useEffect, useState } from 'react';
+import ReactLoading from 'react-loading';
 
 import s from './Events.module.scss';
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
-export function Events({amount, presentAmount}){
+export function Events({day}){
   const [data, setData] = useState([]);
-  let date = '000';
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
-  function setDate(d){
-    date = d;
-  }
+
  
   useEffect(() => {
     const fetchData = async () => {
-      setIsError(false);
       setIsLoading(true);
       try {
-        const result = await fetch(apiUrl+`/events/filter/${amount}`);
+        const result = await fetch(apiUrl+`/events/filter/${day}`);
         const json = await result.json();
-        json.splice(0,presentAmount);
+        console.log(json);
         setData(json);
       } catch (error) {
         setIsError(true);
@@ -28,33 +25,26 @@ export function Events({amount, presentAmount}){
       setIsLoading(false);
     };
     fetchData();
-  },[amount]);
+  },[day]);
 
   return (
-    isError ? (
-      <div className = { 'row' }>
-        <div className = { s.event_box, s.event_box_error }>An error ocurred fetching the events</div> 
-      </div>
-       
+    isLoading ? (
+      <div className = { `${s.event} row` }>
+            <ReactLoading type={'bubbles'} color={'black'} height={'20%'} width={'20%'} />
+      </div>       
     ) : (  
-      isLoading ? (
-        <div className = { 'row col-10' }>
-          <div className= { s.event_box, s.event_box_loading }>
-            <p>Loading events ...</p>
-          </div>
-        </div>
+      isError ? (
+        <div className = { `${s.event} row` }>
+          An error ocurred fetching the events
+        </div> 
       ) : (    
-        data.map(item => (
-          console.log(date+" , "+item.start_time.substring(0,10)),
-           date !== item.start_time.substring(0,10) && (
-            <div className = "row col-10 ">
-              <h1>{ item.start_time.substring(0,10) }</h1>
-            </div>     
-          ),
-            console.log('holaaaa'+item.start_time.substring(0,10)),
-            setDate( item.start_time.substring(0,10)),
-            <div className = { "col-3 col-md-10 col-sm-12" }>
-              <div className = { s.event_box }>
+        <div>
+          <div className = "row col-10 ">
+            <h1>{ data[0].start_time.substring(0,10) }</h1>
+          </div>  
+          <div className = { s.events }> 
+          {data.map(item => (
+              <div className = {`${s.event_box} col-3 col-md-10 col-sm-12 `}>
                 <a href={ item.link }>
                   <img src ={ item.banner } alt = ""></img>
                   <div className = { s.event_text }>
@@ -62,10 +52,9 @@ export function Events({amount, presentAmount}){
                   </div>
                 </a>
              </div>
-            </div>
-            
-          
-        ))
+          ))}
+          </div>
+        </div>      
       )
     )
   );

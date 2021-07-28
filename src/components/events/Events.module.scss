@@ -1,3 +1,12 @@
+.events{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.event{
+  display:flex;
+  justify-content: center;
+}
 .event_box{
     margin: 2rem;
     min-height: 250px;
@@ -16,12 +25,6 @@
       @media(max-width: 499px) {
         height: 180px;
       }
-    }
-    &_loading{
-      p{
-        text-align: center;
-      }
-      background-color: rgb(168, 197, 187);
     }
     &_error{
       p{

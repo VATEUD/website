@@ -11,7 +11,7 @@ const apiUrl = process.env.REACT_APP_API_URL;
 
 export default function Index() {
 
-  const [noevents, setNoEvents] = useState(false);
+  const [noEvents, setNoEvents] = useState(false);
   const [events, setEvents] = useState([0]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -42,7 +42,7 @@ export default function Index() {
       setIsLoading(false);
     };
     fetchData();
-  },[noevents]);
+  },[noEvents]);
 
   return (
     <>
@@ -110,23 +110,28 @@ export default function Index() {
           <h1>Events</h1>
         </div>
         { events.length > 1 &&
-        <div className="row event-day">
+        <div className={`${s.three__event__day} row`}>
           <button value="3" onClick={lessEvents}>less</button>
           </div>
         }
-        <div className ="grid event-pool">
+        <div className ={`${s.three__event__pool} grid`}>
           {isLoading ? (
-            <p>Loading</p>
+            <ReactLoading type={'bubbles'} color={'black'} height={'20%'} width={'20%'} />
           ):(
-            isError? (
-              <div>There aren't any more events today. Press more to check tomrrow's events.</div>
-            ):(
-              events.map(i => <Events amount={i} presentAmount={i-1} />)
+            noEvents ? (
+              <p>There aren't any more events today. Press more to check tomrrow's events.</p>
+            ) : (
+              isError? (
+                <p>An error ocurred while fetching the events</p>
+              ):(
+                events.map(i => <Events day={i} />)
+              )
             )
+            
           )}
         </div>
         { events.length < 5 &&
-        <div className="row event-day">
+        <div className={`${s.three__event__day} row`}>
           <button onClick={moreEvents}>More</button>
           </div>
          }
