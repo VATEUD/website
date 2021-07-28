@@ -30,7 +30,8 @@ export default function Index() {
       setIsLoading(true);
       try {
         const result = await fetch(apiUrl+`/events/filter/0`);
-        if(await result.json() !== null){
+        if(await result.json() !== null || events.length > 1){
+          setEvents([1])
           setNoEvents(false);
         } else{
           setNoEvents(true);
@@ -41,7 +42,7 @@ export default function Index() {
       setIsLoading(false);
     };
     fetchData();
-  },[noEvents]);
+  },[noEvents, events.length]);
 
   return (
     <>
@@ -74,7 +75,6 @@ export default function Index() {
 {/* SECOND SECTION */}
 
       <section className={`${s.two}`}>
-      <a class ="linktwo" id ="two"></a>
         <div className={`${s.two__title}`}>
           <h1>What do we do?</h1>
         </div>
@@ -120,31 +120,36 @@ export default function Index() {
           </div>
             
           ):(
-            noEvents ? (
+            isError ? (
               <div  className={`${s.three__event__day} row`}>
-                  <p>There aren't any more events today. Press more to check tomrrow's events.</p>
+                <p>An error ocurred while fetching the events</p>
+                  
                 </div>
               
             ) : (
-              isError? (
+              
+              noEvents ? (
+                <>
                 <div  className={`${s.three__event__day} row`}>
-                  <p>An error ocurred while fetching the events</p>
+                  <p>There aren't any more events today. Press more to check tomrrow's events.</p>
                 </div>
-               
+                {events.length < 5 && 
+                  <div className={`${s.three__event__day} row`}>
+                    <button onClick={moreEvents}>More</button>
+                  </div>   
+                }
+               </>
               ):(
                 <>
                 {events.map(i => <Events day={i} />)}
-                {events.length < 5 && (
-                  <div className={`${s.three__event__day} row`}>
-                    <button onClick={moreEvents}>More</button>
-                    </div>
-                )}
-                </>
-                
-              )
-                 
+                {events.length < 5 && 
+                <div className={`${s.three__event__day} row`}>
+                  <button onClick={moreEvents}>More</button>
+                </div>   
+              }
+                </> 
+              ) 
             )
-            
           )}
         </div>
       </section>

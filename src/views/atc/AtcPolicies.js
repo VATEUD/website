@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Document, Page, pdfjs } from "react-pdf";
 
-import mod from '../../assets/utils';
+
 import s from './AtcPolicies.module.scss';
+
+function mod(n, m) {
+  let remain = n % m;
+  let remain2 =  Math.floor(remain >= 0 ? remain : remain + m);
+  if(remain2 === 0) return 1;
+  else return remain2;
+};
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -19,7 +26,6 @@ export default function AtcPolicies() {
 
   useEffect(() => {
     const fetchData = async () => {
-      setIsError(false);
       setIsLoading(true);
       try {
         const result = await fetch(process.env.REACT_APP_API_URL+'/minio/uploads');
@@ -31,7 +37,7 @@ export default function AtcPolicies() {
       setIsLoading(false);
     };
     fetchData();
-  },[!data]);
+  },[isError]);
 
   return(
     <section className={s.policies}>
@@ -41,6 +47,7 @@ export default function AtcPolicies() {
         isError ? ( 
           <div className = "error"><p>There was a problem fetching the ATC Polcies document</p></div>
         ) : (
+          
             data.map(item => (
               <div>
                 <Document

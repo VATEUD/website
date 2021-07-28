@@ -22,7 +22,6 @@ export default function AtcList() {
 
   useEffect(() => {
     const fetchData = async () => {
-      setIsError(false);
       setIsLoading(true);
       try {
         const result = await fetch(apiUrl+`/atc/${scope}/${dependency}`);
@@ -34,7 +33,7 @@ export default function AtcList() {
       setIsLoading(false);
     };
     fetchData();
-  },[!data]);
+  },[isError, scope, dependency]);
 
   if(scope === undefined){
     return(

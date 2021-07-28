@@ -26,7 +26,7 @@ export default function Navbar({ color, path }) {
 
   useScrollPosition(({ prevPos, currPos }) => {
     if(!color) {
-      if(currPos.y == 0){
+      if(currPos.y === 0){
         const myHeader = document.getElementById('myHeader');
         myHeader.style.backgroundColor = 'rgba(0,0,0,0)';
       }else{

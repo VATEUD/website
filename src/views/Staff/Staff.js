@@ -35,7 +35,7 @@ export default function Staff() {
       setIsLoading(false);
     };
     fetchData();
-  },[!data]);
+  },[isError]);
 
 
   useEffect(() => {
@@ -43,7 +43,7 @@ export default function Staff() {
       console.log(location);
       setAnimationClass(ANIMATION_CLASSES.fadeIn);
     }) 
- },[history]);
+ },[history, ANIMATION_CLASSES.fadeIn]);
 
   return(
     isLoading ? (

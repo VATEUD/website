@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import ReactLoading from 'react-loading';
 import { Document, Page, pdfjs } from "react-pdf";
 
 import s from './Policies.module.scss';
-import mod from '../../assets/utils';
+
+function mod(n, m) {
+  let remain = n % m;
+  let remain2 =  Math.floor(remain >= 0 ? remain : remain + m);
+  if(remain2 === 0) return 1;
+  else return remain2;
+};
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -19,7 +26,6 @@ export default function Policies() {
 
   useEffect(() => {
     const fetchData = async () => {
-      setIsError(false);
       setIsLoading(true);
       try {
         const result = await fetch(process.env.REACT_APP_API_URL+'/minio/uploads');
@@ -32,14 +38,16 @@ export default function Policies() {
       setIsLoading(false);
     };
     fetchData();
-  },[!data]);
+  },[isError]);
 
   return(
     <section className={s.policies}>
       {isError ? ( <div className = "error"><p>Unfortunatelly there was an error while fetching the policies. Please try again later.</p></div> 
       ) : (
         isLoading ? (
-          <div className = "loading"><p>Loading Polcies document</p></div>
+          <div className = "loading">
+            <ReactLoading type={'bubbles'} color={'black'} height={'20%'} width={'20%'} />
+          </div>
         ) : (
           <div>
             <Document

@@ -13,6 +13,7 @@ export function Events({day}){
  
   useEffect(() => {
     const fetchData = async () => {
+      console.log(day);
       setIsLoading(true);
       try {
         const result = await fetch(apiUrl+`/events/filter/${day}`);
