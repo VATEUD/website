@@ -5,15 +5,9 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      @media(max-width: 499px) {
-        padding-top: 100px;
-      }
     }
     &__departament:first-of-type{
       width: 60%;
-      @media(max-width: 499px) {
-        width: 100%;
-      }
     }
     &__departament{
       border-radius: 5px;

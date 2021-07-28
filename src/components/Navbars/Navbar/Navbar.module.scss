@@ -53,16 +53,16 @@ header{
     li {
       display: inline;
       color: white;
-      margin-left: 20px;   
+      margin-left: 20px;  
+      @media(max-width: 499px) {
+        display: none;
+      } 
     }
     a{
       display:flex;
       align-items: center;
       text-decoration: none;
       transition: 0.5s;
-      @media(max-width: 499px) {
-        display: none;
-      }
     }
     img{
       margin-left: 15px;

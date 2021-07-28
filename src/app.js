@@ -1,6 +1,6 @@
 import { Route, Switch, Redirect, BrowserRouter as Router } from 'react-router-dom';
 
-import Index from "./views/Index.js";
+import Index from "./views/Index/Index.js";
 import Staff from "./views/Staff/Staff.js"
 import Policies from "./views/Policies/Policies.js"
 import Atc from "./views/atc/Atc.js"
