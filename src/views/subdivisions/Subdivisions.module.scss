@@ -1,0 +1,59 @@
+.staff{
+    min-height: 1200px;
+    height: 100%;
+    &__grid{
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    &__departament:first-of-type{
+      width: 60%;
+    }
+    &__departament{
+      border-radius: 5px;
+      background-color: rgb(221, 221, 209);
+      margin: 1rem 2rem;
+      padding:2rem;
+      box-shadow: 0.5rem 0.5rem 0.25rem rgb(170, 170, 170);
+  
+      h1{
+  
+        margin-bottom: 1rem;
+      }
+      p{
+        padding:0 1rem;
+        margin-bottom: 1rem;
+      }
+      a{
+        text-decoration: none;
+        padding: 0 1rem;
+      }
+      &__table{
+        padding:0 1rem;
+        display:flex;
+        flex-direction: column;
+        tr{
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+    }
+    &__linktwo{
+      margin-top: 200px;
+    }
+  }
+  .fade-in {
+    animation-duration: 4s;
+    animation-name: fadeIn;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translate3d(0, -100%, 0);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }

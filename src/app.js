@@ -7,6 +7,7 @@ import Atc from "./views/atc/Atc.js"
 import AtcList from "./views/atc/AtcList.js"
 import AtcPolicies from "./views/atc/AtcPolicies.js"
 import Layout from "./components/Layout/Layout"
+import Subdivisions from "./views/subdivisions/Subdivisions"
 
 export default function App() {
 
@@ -20,6 +21,7 @@ export default function App() {
           <Route exact path="/atc" children={ <Atc/> } />
           <Route exact path="/atc/policies" children={ <AtcPolicies/> } />
           <Route exact path="/atc/:scope/:dependency" children={ <AtcList/> } />
+          <Route exact path="/subdivisions" children={ <Subdivisions/> } />
           <Redirect from="*" to="/"/>
         </Switch>
       </Router> 
