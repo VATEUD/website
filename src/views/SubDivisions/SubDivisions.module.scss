@@ -1,0 +1,35 @@
+.staff{
+    padding-top: 150px;
+    min-height: 1200px;
+    height: 100%;
+    &__grid{
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    &__departament{
+      border-radius: 5px;
+      background-color: rgb(221, 221, 209);
+      margin: 1rem 2rem;
+      padding:2rem;
+      box-shadow: 0.5rem 0.5rem 0.25rem rgb(170, 170, 170);
+      &__table{
+        margin-top: 1rem;
+        width: 100%;
+        h4{
+            font-weight: 500;
+        }
+      }
+      h1{
+        margin-bottom: 1rem;
+      }
+      p{
+        padding:0 1rem;
+        margin-bottom: 1rem;
+      }
+      a{
+        text-decoration: none;
+        padding: 0 1rem;
+      }
+    }
+  }

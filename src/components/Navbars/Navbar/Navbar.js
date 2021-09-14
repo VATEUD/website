@@ -64,6 +64,7 @@ export default function Navbar({ color, path }) {
             <a href='#' onClick={()=> dropDown()}><img className={s.burger_menu__shape__rectangle__list__close} src={require("../../../assets/img/Close-Icon@1x.png").default } alt =""></img></a>
             <a href="https://api.vateud.net/oauth/connect/login"><img className={s.burger_menu__shape__rectangle__list__eudLogo} src={require("../../../assets/img/vateud.png").default } alt=""></img></a>
             <a href="/staff">Staff</a>
+            <a href="/subdivisions">SubDivisions</a>
             <a href="/policies">Policies and Regulations</a>
             <a href="http://members.vateud.net/">Members Departament</a>
             <div className={s.burger_menu__shape__rectangle__list__training}>
