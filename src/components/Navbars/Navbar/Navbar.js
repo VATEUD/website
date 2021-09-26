@@ -62,7 +62,7 @@ export default function Navbar({ color, path }) {
           <div id="dropdownLinks" className={s.burger_menu__shape__rectangle}>
           <div className={s.burger_menu__shape__rectangle__list}>
             <a href='#' onClick={()=> dropDown()}><img className={s.burger_menu__shape__rectangle__list__close} src={require("../../../assets/img/Close-Icon@1x.png").default } alt =""></img></a>
-            <a href="https://api.vateud.net/oauth/connect/login"><img className={s.burger_menu__shape__rectangle__list__eudLogo} src={require("../../../assets/img/vateud.png").default } alt=""></img></a>
+            <a href="/"><img className={s.burger_menu__shape__rectangle__list__eudLogo} src={require("../../../assets/img/vateud.png").default } alt=""></img></a>
             <a href="/staff">Staff</a>
             <a href="/subdivisions">SubDivisions</a>
             <a href="/policies">Policies and Regulations</a>
@@ -73,7 +73,7 @@ export default function Navbar({ color, path }) {
                 <a href ="/atc/policies">Policies</a><br></br>
                 <a href ="/atc/division/examiners">Division Examiners</a><br></br>
                 <a href ="/atc/division/instructors">Division Instructors</a><br></br>
-                <a href ="/atc/vacc/instructors">vACC Instructors</a>
+                <a href ="/atc/subdivisions/instructors">vACC Instructors</a>
               </div>
             </div>
            </div>
