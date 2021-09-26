@@ -15,15 +15,13 @@ export default function Staff() {
   }
 
   const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const history = useHistory();
   const [animationClass, setAnimationClass] = useState(ANIMATION_CLASSES.fadeDownAndIn);
   
   useEffect(() => {
     const fetchData = async () => {
-      setIsError(false);
-      setIsLoading(true);
       try {
         const result = await fetch(apiUrl+'/staff');
         const json = await result.json();

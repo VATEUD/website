@@ -1,4 +1,4 @@
-import { Route, Switch, Redirect, BrowserRouter as Router } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import Index from "./views/Index/Index.js";
 import Staff from "./views/Staff/Staff.js";
@@ -13,7 +13,6 @@ export default function App() {
 
   return (
     <Layout>
-      <Router>
         <Switch>
           <Route exact path="/" children={ <Index/> } />
           <Route exact path="/staff" children={ <Staff/> } />
@@ -24,7 +23,6 @@ export default function App() {
           <Route exact path="/atc/:scope/:dependency" children={ <AtcList/> } />
           <Redirect from="*" to="/"/>
         </Switch>
-      </Router> 
     </Layout>
   );
 }

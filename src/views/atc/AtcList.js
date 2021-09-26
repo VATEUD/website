@@ -12,7 +12,7 @@ export default function AtcList() {
   let { scope, dependency } = useParams();
 
   const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const loadingElements = {
     'divisionexaminers':'Division Examniers',
@@ -22,7 +22,6 @@ export default function AtcList() {
 
   useEffect(() => {
     const fetchData = async () => {
-      setIsLoading(true);
       try {
         const result = await fetch(apiUrl+`/${scope}/${dependency}`);
         const json = await result.json();

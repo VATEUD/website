@@ -26,7 +26,6 @@ export default function Policies() {
 
   useEffect(() => {
     const fetchData = async () => {
-      setIsLoading(true);
       try {
         const result = await fetch(process.env.REACT_APP_API_URL+'/uploads/filter/0');
         const json = await result.json();

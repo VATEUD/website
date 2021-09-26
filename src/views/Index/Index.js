@@ -13,7 +13,7 @@ export default function Index() {
 
   const [noEvents, setNoEvents] = useState(false);
   const [events, setEvents] = useState([0]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
   function lessEvents(e){
@@ -27,7 +27,6 @@ export default function Index() {
  
   useEffect(() => {
     const fetchData = async () => {
-      setIsLoading(true);
       try {
         const result = await fetch(apiUrl+`/events/filter/days/0`);
         console.log(events);

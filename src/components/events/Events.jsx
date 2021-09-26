@@ -13,12 +13,9 @@ export function Events({day}){
  
   useEffect(() => {
     const fetchData = async () => {
-      console.log(day);
-      setIsLoading(true);
       try {
         const result = await fetch(apiUrl+`/events/filter/days/${day}`);
         const json = await result.json();
-        console.log(json);
         setData(json);
       } catch (error) {
         setIsError(true);

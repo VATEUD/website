@@ -14,7 +14,6 @@ export default function SubDivisions() {
   
   useEffect(() => {
     const fetchData = async () => {
-      setIsError(false);
       try {
         const result = await fetch(apiUrl+'/subdivisions');
         const json = await result.json();
