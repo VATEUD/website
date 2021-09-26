@@ -29,7 +29,7 @@ export default function Index() {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const result = await fetch(apiUrl+`/events/filter/0`);
+        const result = await fetch(apiUrl+`/events/filter/days/0`);
         console.log(events);
         if(await result.json() !== null || events[0] === 1){
           setNoEvents(false);

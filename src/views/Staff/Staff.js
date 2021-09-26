@@ -28,7 +28,7 @@ export default function Staff() {
         const result = await fetch(apiUrl+'/staff');
         const json = await result.json();
         console.log(json);
-        setData(json.departments);
+        setData(json);
       } catch (error) {
         setIsError(true);
       }
@@ -55,10 +55,10 @@ export default function Staff() {
             <div className = {s.staff__grid}>
               {data.map(item => (
                 
-                  <div id = {item.title.substring(0,3)}  className={` col-5 col-md-10 col-sm-11 ${animationClass}`}>
+                  <div id = {item.name.substring(0,3)}  className={` col-5 col-md-10 col-sm-11 ${animationClass}`}>
                     <div className = {s.staff__departament}>
-                    <div class ="linktwo" name ={item.title.substring(0,3) }></div>
-                    <h1>{item.title}</h1>
+                    <div class ="linktwo" name ={item.name.substring(0,3) }></div>
+                    <h1>{item.name}</h1>
                     <p >{item.description}</p>
                     <a href ={"mailto:"+item.email}>{item.email}</a>
                     <table className="table">
@@ -66,7 +66,7 @@ export default function Staff() {
                         <th>Name</th>
                         <th>Callsign</th>
                       </tr>
-                      {item.staff.map(item2 => (
+                      {item.members.map(item2 => (
                         <tr>
                           <th>
                             {item2.name}

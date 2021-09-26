@@ -16,7 +16,7 @@ export function Events({day}){
       console.log(day);
       setIsLoading(true);
       try {
-        const result = await fetch(apiUrl+`/events/filter/${day}`);
+        const result = await fetch(apiUrl+`/events/filter/days/${day}`);
         const json = await result.json();
         console.log(json);
         setData(json);

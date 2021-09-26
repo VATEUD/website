@@ -28,9 +28,12 @@ export default function Policies() {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const result = await fetch(process.env.REACT_APP_API_URL+'/minio/uploads');
+        const result = await fetch(process.env.REACT_APP_API_URL+'/uploads/filter/0');
         const json = await result.json();
-        console.log(json);
+        if (!json) {
+          setIsError(true);
+          return;
+        }
         setData(json);
       } catch (error) {
         setIsError(true);
@@ -49,23 +52,27 @@ export default function Policies() {
             <ReactLoading type={'bubbles'} color={'black'} height={'20%'} width={'20%'} />
           </div>
         ) : (
-          <div>
-            <Document
-              file={data[0].download_url}
-              onLoadSuccess={onDocumentLoadSuccess}
-              onLoadError={console.error}
-              className={s.policies__pdf}
-            >
-              <Page 
-                pageNumber={pageNumber}
-                height={600} />
-            </Document>
-            <div className={s.policies__paging}>
-              <button onClick={()=>setPageNumber(mod(pageNumber-1,numPages+1))}>Previous</button>
-              <p>Page {pageNumber} of {numPages}</p>
-              <button onClick={()=>setPageNumber(mod(pageNumber+1,numPages+1))}>Next</button>
+          <div className={s.policies__container}>
+            {data.map(item => (
+            <div>
+              <Document
+                file={item.download_url}
+                onLoadSuccess={onDocumentLoadSuccess}
+                onLoadError={console.error}
+                className={s.policies__pdf}
+              >
+                <Page 
+                  pageNumber={pageNumber}
+                  height={600} />
+              </Document>
+              <div className={s.policies__paging}>
+                <button onClick={()=>setPageNumber(mod(pageNumber-1,numPages+1))}>Previous</button>
+                <p>Page {pageNumber} of {numPages}</p>
+                <button onClick={()=>setPageNumber(mod(pageNumber+1,numPages+1))}>Next</button>
+              </div>
+              <a href ={item.download_url}>Download</a>
             </div>
-            <a href ={data[0].download_url}>Download</a>
+            ))}
           </div>
         )
       )}

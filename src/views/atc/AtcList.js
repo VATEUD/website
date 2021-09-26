@@ -24,7 +24,7 @@ export default function AtcList() {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const result = await fetch(apiUrl+`/atc/${scope}/${dependency}`);
+        const result = await fetch(apiUrl+`/${scope}/${dependency}`);
         const json = await result.json();
         setData(json);
       } catch (error) {
