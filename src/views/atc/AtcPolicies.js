@@ -28,9 +28,10 @@ export default function AtcPolicies() {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const result = await fetch(process.env.REACT_APP_API_URL+'/minio/uploads');
+        const result = await fetch(process.env.REACT_APP_API_URL+'/uploads/filter/1');
         const json = await result.json();
-        setData(json.slice(1));
+        console.log(json);
+        setData(json.slice(0));
       } catch (error) {
         setIsError(true);
       }
