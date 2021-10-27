@@ -18,7 +18,7 @@ export default function Layout({ children }) {
     '/atc/division/examiners': 'Division Examniers',
     '/atc/division/instructors': 'Division Instructors',
     '/atc/vacc/instructors': 'vACC Instructors',
-    '/atc/policies': 'Training Departament Policies',
+    '/atc/policies': 'Training Department Policies',
   }
 
   return (
