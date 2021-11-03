@@ -14,11 +14,11 @@ export default function Layout({ children }) {
   const pages = {
     '/staff': 'Staff',
     '/policies': 'Policies and Regulations',
-    '/atc': 'Training Departament',
+    '/atc': 'Training Department',
     '/atc/division/examiners': 'Division Examniers',
     '/atc/division/instructors': 'Division Instructors',
     '/atc/vacc/instructors': 'vACC Instructors',
-    '/atc/policies': 'Training Departament Policies',
+    '/atc/policies': 'Training Department Policies',
   }
 
   return (
