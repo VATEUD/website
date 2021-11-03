@@ -66,9 +66,9 @@ export default function Navbar({ color, path }) {
             <a href="/staff">Staff</a>
             <a href="/subdivisions">SubDivisions</a>
             <a href="/policies">Policies and Regulations</a>
-            <a href="http://members.vateud.net/">Members Departament</a>
+            <a href="http://members.vateud.net/">Members Department</a>
             <div className={s.burger_menu__shape__rectangle__list__training}>
-              <a href ="/atc">Training Departament</a>
+              <a href ="/atc">Training Department</a>
               <div className={s.burger_menu__shape__rectangle__list__training__sub}>
                 <a href ="/atc/policies">Policies</a><br></br>
                 <a href ="/atc/division/examiners">Division Examiners</a><br></br>
